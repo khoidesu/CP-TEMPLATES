@@ -1,8 +1,14 @@
-(1) đổi/gán giá trị 1 vt 					done
-(2) đổi/gán giá trị 1 đoạn (ban đầu là 0) + lazy		done
-(3) đổi/gán giá trị 1 đoạn (ban đầu là array) + lazy		(2) + build
+## Road map
 
-build:
+- [x] Đổi / gán giá trị 1 vị trí
+
+- [x] Đổi / gán giá trị 1 đoạn (ban đầu là 0) + lazy		
+
+- [x] Đổi / gán giá trị 1 đoạn (ban đầu là array) + lazy	
+
+
+## Build:
+```cpp
 void build(int id, int l, int r)
 {
     if (l == r)
@@ -17,3 +23,4 @@ void build(int id, int l, int r)
     build(2 * id + 1, mid + 1, r);
     node[id].val = max(node[2 * id].val, node[2 * id + 1].val);
 }
+```
