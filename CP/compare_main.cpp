@@ -18,9 +18,6 @@ const int N = 2e5 + 69;
 
 void solve()
 {
-    int n;
-    cin >> n;
-    cout << n  * 2;
 }
 
 Alisa {
