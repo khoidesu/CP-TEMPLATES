@@ -31,25 +31,20 @@ template <class T>
 int cntbit(T s) { return __builtin_popcount(s); }
 
 /** -----I/O FILE----- **/
-#define file(name)                         \
-	if (fopen(name ".inp", "r"))           \
-	{                                      \
-		freopen(name ".inp", "r", stdin);  \
-		freopen(name ".out", "w", stdout); \
+#define file(name, dot)                     \
+	if (fopen(name ".inp", "r"))            \
+	{                                       \
+		freopen(name ".inp", "r", stdin);   \
+		freopen(name "." dot, "w", stdout); \
+	}                                       \
+	else if (fopen("input.txt", "r"))       \
+	{                                       \
+		freopen("input.txt", "r", stdin);   \
+		freopen("output.txt", "w", stdout); \
 	}
-#define file_trau(name)                    \
-	if (fopen(name ".inp", "r"))           \
-	{                                      \
-		freopen(name ".inp", "r", stdin);  \
-		freopen(name ".ans", "w", stdout); \
-	}
-#define fileTHHB                      \
-	freopen("input.txt", "r", stdin); \
-	freopen("output.txt", "w", stdout);
 
 /** -----CONST VALUES----- **/
 const int MOD = 1e9 + 7;
-
 /** -----EXTENSIVE FUNCTIONS----- **/
 int muti(int a, int b) { return (1LL * a * b) % MOD; }
 int Pow(int x, int y)
@@ -87,18 +82,13 @@ bool maximize(X &x, const Y &y)
 	else
 		return false;
 }
-template <class T>
-T Abs(const T &x)
-{
-	return (x < 0 ? -x : x);
-}
 /* Author: khoidesu */
 /** -----IDEAS-----
 	-------------------------- **/
 
 /** -----GLOBAL VARIABLES----- **/
-const int maxn = 1e5 + 50;
-const int maxx = 1e9;
+const int maxn = 2e5 + 50;
+const int INF = 1e9;
 /** -----COMPULSORY FUNCTIONS----- **/
 void VarInput()
 {
@@ -113,10 +103,8 @@ int main()
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
 	cout.tie(0);
-	file("contest");
-	// file_trau("contest");
-	// fileTHHB;
-	// auto TIME1 = chrono::steady_clock::now();
+	file("TASK", "out");
+	auto TIME1 = chrono::steady_clock::now();
 	int T = 1;
 	// cin >> T;
 	while (T--)
@@ -124,8 +112,8 @@ int main()
 		VarInput();
 		Solve();
 	}
-	// auto TIME2 = chrono::steady_clock::now();
-	// auto DIFF = TIME2 - TIME1;
-	// cout << "\n\nTime: " << fixed << setprecision(8) << chrono::duration<double>(DIFF).count() << "s.";
+	auto TIME2 = chrono::steady_clock::now();
+	auto DIFF = TIME2 - TIME1;
+	cerr << "Time: " << fixed << setprecision(8) << chrono::duration<double>(DIFF).count() << "s";
 	return 0;
 }
